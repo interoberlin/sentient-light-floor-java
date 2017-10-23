@@ -26,7 +26,9 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-ext.tomcatHome = ''
+if (!project.hasProperty("tomcatHome")) {
+    ext.tomcatHome = ''
+}
 
 task deployToTomcat(type: Copy) {
     from "${buildDir}/libs"
